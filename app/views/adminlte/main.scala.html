@@ -1,0 +1,34 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AdminLTE 2 | Dashboard</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+		@stylesheet(title)
+
+	</head>
+
+	<body class="skin-green-light sidebar-mini fixed">
+		
+		<div class="wrapper">
+
+			@header.mainHeader(title) @sidebar.leftSidebar(title)
+
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">@content</div>
+			<!-- /.content-wrapper -->
+
+			@footer(title) @sidebar.rightSidebar(title)
+
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- REQUIRED JS SCRIPTS -->
+		@script(title)
+
+	</body>
+</html>

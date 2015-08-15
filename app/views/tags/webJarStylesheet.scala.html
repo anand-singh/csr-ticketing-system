@@ -1,0 +1,4 @@
+@* webJarStylesheet Template File *@
+@(webjar: String, file: String)
+
+<link href="@routes.WebJarAssets.at(WebJarAssets.locate(webjar, file))" rel="stylesheet" type="text/css" />

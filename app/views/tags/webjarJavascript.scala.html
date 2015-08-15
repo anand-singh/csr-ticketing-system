@@ -1,0 +1,4 @@
+@* webjarJavascript Template File *@
+@(webjar: String, file: String)
+
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate(webjar, file))" type="text/javascript"></script>
