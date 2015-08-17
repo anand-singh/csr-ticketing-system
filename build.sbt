@@ -1,3 +1,6 @@
+import play.routes.compiler.InjectedRoutesGenerator
+import play.sbt.PlayScala
+
 name := """csr-ticketing-system"""
 
 version := "1.0-SNAPSHOT"
@@ -6,9 +9,10 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.6"
 
-libraryDependencies ++= Seq(jdbc, cache, ws, specs2 % Test)
+libraryDependencies ++= Seq(jdbc, cache, ws, evolutions, specs2 % Test)
 
 libraryDependencies ++= Seq(
+  "com.typesafe.play" %% "anorm" 				    % "2.4.0",
   "org.webjars"       %% "webjars-play"     % "2.4.0-1",
   "org.webjars.bower" %  "adminlte"         % "2.2.0",
   "org.webjars"       %  "font-awesome"     % "4.3.0-2"
