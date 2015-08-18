@@ -16,7 +16,56 @@ VALUES (2, 'Vipin Kumar', 'New Delhi', '011-22751903');
 INSERT INTO customers (id, name, address, contact)
 VALUES (3, 'Amit', 'Karol Bag', '011-22751903');
 
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (1, 'Delay in delivery', 'open', 1, 1, 2);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (2, 'Defect in product', 'New', 2, 2, 2);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (3, 'Wrong product delivery', 'Closed', 3, 2, 2);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (4, 'Wrong product delivery', 'New', 1, 1, 1);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (5, 'Missing product', 'New', 2, 3, 3);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (6, 'Missing product', 'Open', 3, 1, 2);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (7, 'Missing product', 'Closed', 1, 2, 2);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (8, 'Wrong product delivery', 'Open', 1, 1, 1);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (9, 'Wrong product delivery', 'Closed', 2, 2, 2);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (10, 'Wrong product delivery', 'Open', 3, 3, 3);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (11, 'Defect in product', 'Open', 3, 3, 3);
+INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
+VALUES (12, 'Defect in product', 'New', 2, 2, 2);
+
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (1, 1, 1, '@Anand: Could you please look into this');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (2, 2, 1, '@Sai: sure, I will try to resolved this issue. Thanks');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (3, 1, 2, '@Anand: Could you please look into this');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (4, 2, 2, '@Sai: sure, I will try to resolved this issue. Thanks');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (5, 1, 3, '@Anand: Could you please look into this');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (6, 2, 3, '@Sai: sure, I will try to resolved this issue. Thanks');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (7, 1, 4, '@Anand: Could you please look into this');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (8, 2, 4, '@Sai: sure, I will try to resolved this issue. Thanks');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (9, 1, 5, '@Anand: Could you please look into this');
+INSERT INTO comments (id, user_id, ticket_id, comment)
+VALUES (10, 2, 5, '@Sai: sure, I will try to resolved this issue. Thanks');
+
 # --- !Downs
 
+DELETE FROM comments;
+DELETE FROM tickets;
 DELETE FROM users;
 DELETE FROM customers;
+
