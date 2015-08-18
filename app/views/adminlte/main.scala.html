@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String, user: User)(content: Html)
 
 <!DOCTYPE html>
 <html>
@@ -16,13 +16,14 @@
 		
 		<div class="wrapper">
 
-			@header.mainHeader(title) @sidebar.leftSidebar(title)
+			@header.mainHeader(title, user)
+			@sidebar.leftSidebar(title, user)
 
 			<!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper">@content</div>
 			<!-- /.content-wrapper -->
 
-			@footer(title) @sidebar.rightSidebar(title)
+			@footer(title)
 
 		</div>
 		<!-- ./wrapper -->

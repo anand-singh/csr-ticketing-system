@@ -1,7 +1,7 @@
 @* pageNotFound Template File *@
-@(title: String)
+@(title: String, user: User)
 
-@adminlte.main(title) {
+@adminlte.main(title, user) {
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -10,16 +10,16 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="@routes.Application.index()"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">404 error</li>
+            <li class="active">404 errorAlert</li>
         </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <div class="error-page">
+        <div class="errorAlert-page">
             <h2 class="headline text-yellow"> 404</h2>
 
-            <div class="error-content">
+            <div class="errorAlert-content">
                 <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
 
                 <p>
@@ -39,9 +39,9 @@
                         <!-- /.input-group -->
                 </form>
             </div>
-                <!-- /.error-content -->
+                <!-- /.errorAlert-content -->
         </div>
-            <!-- /.error-page -->
+            <!-- /.errorAlert-page -->
     </section>
     <!-- /.content -->
 }

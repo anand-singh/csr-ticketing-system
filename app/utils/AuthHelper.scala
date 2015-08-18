@@ -29,7 +29,7 @@ class AuthHelper @Inject() (cacheApi: CacheApi) {
    * @return
    */
   def unauthorizedSimpleRequest(request: RequestHeader): Result = {
-    Results.Redirect(routes.AuthController.login())
+    Results.Redirect(routes.AuthController.login()).withNewSession
   }
 
   /**
@@ -38,7 +38,7 @@ class AuthHelper @Inject() (cacheApi: CacheApi) {
    * @param request
    * @return
    */
-  def unauthorizedAjaxRequest(request: RequestHeader): Result = Results.Forbidden
+  def unauthorizedAjaxRequest(request: RequestHeader): Result = Results.Forbidden.withNewSession
 
 
   /**
@@ -54,7 +54,7 @@ class AuthHelper @Inject() (cacheApi: CacheApi) {
         case false => Future.successful(unauthorizedSimpleRequest(request))
       }
       username(request).map { email =>
-        Cache.getAs[User](email) match {
+        cacheApi.get[User](email) match {
           case Some(user: User) => f(user)(request)
           case _ => unauthorized
         }

@@ -1,5 +1,6 @@
 import play.routes.compiler.InjectedRoutesGenerator
 import play.sbt.PlayScala
+import play.twirl.sbt.Import.TwirlKeys
 
 name := """csr-ticketing-system"""
 
@@ -23,3 +24,5 @@ resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 // Play provides two styles of routers, one expects its actions to be injected, the
 // other, legacy style, accesses its actions statically.
 routesGenerator := InjectedRoutesGenerator
+
+TwirlKeys.templateImports += "models._"

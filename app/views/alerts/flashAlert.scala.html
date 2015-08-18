@@ -1,0 +1,10 @@
+@()(implicit flash: Flash)
+
+
+@flash.get("SUCCESS").map { message =>
+    @successAlert(message)
+}
+
+@flash.get("ERROR").map { message =>
+    @errorAlert(message)
+}
