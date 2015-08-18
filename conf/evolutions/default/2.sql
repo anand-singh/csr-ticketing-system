@@ -10,11 +10,11 @@ INSERT INTO users (id, name, designation, email, password, is_admin)
 VALUES (3, 'Jyoti Singh', 'Testing Engineer', 'jyoti@gmail.com', 'password', FALSE);
 
 INSERT INTO customers (id, name, address, contact)
-VALUES (1, 'Anuj Raj', 'Mayur Vihar Phase-1', "011-22751903");
+VALUES (1, 'Anuj Raj', 'Mayur Vihar Phase-1', '011-22751903');
 INSERT INTO customers (id, name, address, contact)
-VALUES (2, 'Vipin Kumar', 'New Delhi', "011-22751903");
+VALUES (2, 'Vipin Kumar', 'New Delhi', '011-22751903');
 INSERT INTO customers (id, name, address, contact)
-VALUES (3, 'Amit', 'Karol Bag', "011-22751903");
+VALUES (3, 'Amit', 'Karol Bag', '011-22751903');
 
 # --- !Downs
 

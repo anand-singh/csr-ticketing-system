@@ -11,13 +11,12 @@ CREATE TABLE users (
   email       VARCHAR(100) NOT NULL,
   password    VARCHAR(100) NOT NULL,
   is_admin    BOOLEAN               DEFAULT FALSE,
-  CONSTRAINT pk_users PRIMARY KEY (id),
-  CONSTRAINT UNIQUE KEY (email)
+  CONSTRAINT pk_users PRIMARY KEY (id)
 );
 
 CREATE TABLE customers (
   id      BIGINT        NOT NULL AUTO_INCREMENT,
-  name    BIGINT        NOT NULL,
+  name    VARCHAR(255)  NOT NULL,
   address VARCHAR(1000) NOT NULL,
   contact VARCHAR(55)   NOT NULL,
   CONSTRAINT pk_customers PRIMARY KEY (id)

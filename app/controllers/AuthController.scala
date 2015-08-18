@@ -18,11 +18,11 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class AuthController @Inject()(userService: UserService, cacheApi: CacheApi) extends Controller with LoggerHelper {
 
   def login = Action { implicit request =>
-    Ok(views.html.login("CSR-System: Login"))
+    Ok(views.html.login("CSR-System: Login")).withNewSession
   }
 
   def logout = Action { implicit request =>
-    Ok(views.html.login("CSR-System: Login"))
+    Ok(views.html.login("CSR-System: Login")).withNewSession
   }
 
   def loginForm = Form(tuple("email" -> email, "password" -> nonEmptyText))
