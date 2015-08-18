@@ -40,4 +40,33 @@ trait DAOParsers {
     }
   }
 
+  /**
+   * Parse a customer from a ResultSet
+   */
+  val customer = {
+    get[Long]("customers.id") ~
+      get[String]("customers.name") ~
+      get[String]("customers.address") ~
+      get[String]("customers.contact") map {
+      case id ~ name ~ address ~ contact => Customer(id, name, address, contact)
+    }
+  }
+
+  /**
+   * Parse a ticket from a ResultSet
+   */
+  val ticket = {
+    get[Long]("tickets.id") ~
+      get[String]("tickets.description") ~
+      get[String]("tickets.status") ~
+      get[Date]("tickets.created_at") ~
+      get[Date]("tickets.updated_at") ~
+      get[Long]("tickets.customer_id") ~
+      get[Long]("tickets.created_by") ~
+      get[Long]("tickets.assigned_to") map {
+      case id ~ description ~ status ~ createdAt ~ updatedAt ~ customerId ~ createdBy ~ assignedTo =>
+        Ticket(id, description, status, createdAt, updatedAt, customerId, createdBy, assignedTo)
+    }
+  }
+
 }
