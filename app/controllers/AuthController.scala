@@ -22,7 +22,7 @@ class AuthController @Inject()(userService: UserService, cacheApi: CacheApi) ext
   }
 
   def logout = Action { implicit request =>
-    Ok(views.html.login("CSR-System: Login")).withNewSession
+    Redirect(routes.AuthController.login).withNewSession.flashing("SUCCESS" -> "You have successfully logout. Thanks")
   }
 
   def loginForm = Form(tuple("email" -> email, "password" -> nonEmptyText))
