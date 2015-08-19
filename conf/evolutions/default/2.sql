@@ -3,11 +3,21 @@
 # --- !Ups
 
 INSERT INTO users (id, name, designation, email, password, is_admin)
-VALUES (1, 'Sai Premalatha', 'Manager', 'premalatha@redmart.com', 'password', TRUE);
+VALUES (1, 'Sai Premalatha', 'Manager', 'premalatha@gmail.com', 'password', TRUE);
 INSERT INTO users (id, name, designation, email, password, is_admin)
 VALUES (2, 'Anand Kumar Singh', 'Software Engineer', 'imanandksingh@gmail.com', 'password', FALSE);
 INSERT INTO users (id, name, designation, email, password, is_admin)
 VALUES (3, 'Jyoti Singh', 'Testing Engineer', 'jyoti@gmail.com', 'password', FALSE);
+INSERT INTO users (id, name, designation, email, password, is_admin)
+VALUES (4, 'Amit Singh', 'Product Engineer', 'amit@gmail.com', 'password', FALSE);
+INSERT INTO users (id, name, designation, email, password, is_admin)
+VALUES (5, 'Premalatha', 'Manager', 'premalatha@gmail.com', 'password', TRUE);
+INSERT INTO users (id, name, designation, email, password, is_admin)
+VALUES (6, 'Avinash Singh', 'Developer', 'avinash@gmail.com', 'password', FALSE);
+INSERT INTO users (id, name, designation, email, password, is_admin)
+VALUES (7, 'Satendra Yadav', 'Testing Engineer', 'satendra@gmail.com', 'password', FALSE);
+INSERT INTO users (id, name, designation, email, password, is_admin)
+VALUES (8, 'Amit Singh', 'Product Engineer', 'amit@gmail.com', 'password', FALSE);
 
 INSERT INTO customers (id, name, address, contact)
 VALUES (1, 'Anuj Raj', 'Mayur Vihar Phase-1', '011-22751903');
@@ -17,7 +27,7 @@ INSERT INTO customers (id, name, address, contact)
 VALUES (3, 'Amit', 'Karol Bag', '011-22751903');
 
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (1, 'Delay in delivery', 'open', 1, 1, 2);
+VALUES (1, 'Delay in delivery', 'Open', 1, 1, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
 VALUES (2, 'Defect in product', 'New', 2, 2, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)

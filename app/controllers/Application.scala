@@ -1,18 +1,27 @@
 package controllers
 
 import com.google.inject.Inject
+import models.User
 import play.api.cache.CacheApi
 import play.api.mvc._
-import utils.{LoggerHelper, AuthHelper}
+import services.{TicketService, UserService}
+import utils.{AuthHelper, FutureHelper, LoggerHelper}
 
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-class Application @Inject()(cacheApi: CacheApi) extends AuthHelper(cacheApi) with Controller with LoggerHelper {
+class Application @Inject()(cacheApi: CacheApi, uService: UserService, tService: TicketService)
+  extends AuthHelper(cacheApi) with Controller with LoggerHelper {
 
   def index = withAuth { user => implicit request =>
     info(s"Session user data: $user")
-    Future(Ok(views.html.index("Your new application is ready.", user)))
+    FutureHelper {
+      (uService.getUsers(), tService.getTicketDetails())
+    }.map { case (users, tickets) =>
+      Ok(views.html.index("Dashboard", user, users, tickets))
+    }.recover { case ex: Exception =>
+      error(ex.getMessage, ex)
+      Ok(views.html.index("Dashboard", user, List.empty[User], Map[String, Int]()))
+    }
   }
 
 }

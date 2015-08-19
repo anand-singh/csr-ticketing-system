@@ -1,7 +1,7 @@
 package services
 
 import com.google.inject.Inject
-import models.{User, UserDAO}
+import models.{TicketDAO, User, UserDAO}
 import utils.LoggerHelper
 
 /**
@@ -25,6 +25,16 @@ class UserService @Inject()(userDAO: UserDAO) extends LoggerHelper {
         case _ => Left("Please check the email/password.")
       }
     }.getOrElse(Left("User not found for given email."))
+  }
+
+  /**
+   * Get all user from database
+   *
+   * @return
+   */
+  def getUsers(): List[User] = {
+    info("Get all user called")
+    userDAO.findAll()
   }
 
 }

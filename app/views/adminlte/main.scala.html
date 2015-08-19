@@ -1,4 +1,4 @@
-@(title: String, user: User)(content: Html)
+@(title: String, user: User)(content: Html)(customScripts: Html)
 
 <!DOCTYPE html>
 <html>
@@ -30,6 +30,8 @@
 
 		<!-- REQUIRED JS SCRIPTS -->
 		@script(title)
+
+		@customScripts
 
 	</body>
 </html>

@@ -1,6 +1,10 @@
 @* leftSidebar Template File *@
 @(title: String, user: User)
 
+@isActive(page: String) = {
+  @if(title.equalsIgnoreCase(page)) { active }
+}
+
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
@@ -18,9 +22,14 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
-      <li class="active">
+      <li class="@isActive("Dashboard")">
         <a href="@routes.Application.index()">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="@isActive("Tickets")">
+        <a href="@routes.TicketController.tickets()">
+          <i class="fa fa-list"></i> <span>Tickets</span>
         </a>
       </li>
     </ul>
