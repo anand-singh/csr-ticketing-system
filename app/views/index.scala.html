@@ -1,6 +1,8 @@
 @* dashboard Template File *@
 @(title: String, user: User, users: List[User], ticketDetails: Map[String, Int])
 
+@import utils.GravatarUtility
+
 @adminlte.main(title, user) {
 
     <!-- Content Header (Page header) -->
@@ -33,7 +35,7 @@
                         <ul class="users-list clearfix">
                         @users.map { userData =>
                             <li>
-                                <img src="@routes.WebJarAssets.at(WebJarAssets.locate("adminlte", "img/avatar.png"))" alt="User Image" />
+                                <img src="@GravatarUtility.gravatarUrl(userData.email)" alt="User Image" />
                                 <a class="users-list-name" href="#">@userData.name</a>
                                 <span class="users-list-date">@userData.designation</span>
                             </li>

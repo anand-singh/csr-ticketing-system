@@ -19,4 +19,15 @@ class TicketService @Inject()(ticketDAO: TicketDAO) extends LoggerHelper {
     ticketMap.map { case (key, values) => (key -> values.size) }
   }
 
+  /**
+   * Get ticket by given ticket id
+   *
+   * @param id
+   * @return
+   */
+  def getTicketById(id: Long): Option[Ticket] = {
+    info(s"Get ticket by id called with id: $id")
+    ticketDAO.findById(id)
+  }
+
 }

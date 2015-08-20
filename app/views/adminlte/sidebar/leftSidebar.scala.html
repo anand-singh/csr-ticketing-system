@@ -1,6 +1,8 @@
 @* leftSidebar Template File *@
 @(title: String, user: User)
 
+@import utils.GravatarUtility
+
 @isActive(page: String) = {
   @if(title.equalsIgnoreCase(page)) { active }
 }
@@ -12,7 +14,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="@routes.WebJarAssets.at(WebJarAssets.locate("adminlte", "img/avatar.png"))" class="img-circle" alt="User Image" />
+        <img src="@GravatarUtility.gravatarUrl(user.email)" class="img-circle" alt="User Image" />
       </div>
       <div class="pull-left info">
         <p>@user.name</p>

@@ -1,13 +1,25 @@
 @* tickets Template File *@
 @(title: String, user: User, users: Map[Long, User], tickets: List[Ticket])
 
+@getLabelCSS(status: String) = {
+    @{status match {
+        case "New" => "label-warning"
+        case "Open" => "label-success"
+        case _ => "label-danger"
+    }}
+}
+
+@statusLabel(status: String) = {
+    <span class="label @getLabelCSS(status)">@status</span>
+}
+
 @trHelper(ticket: Ticket) = {
     <tr>
         <td class="details-control"></td>
         <td>@ticket.description</td>
-        <td>@ticket.createdAt</td>
-        <td>@ticket.updatedAt</td>
-        <td>@ticket.status</td>
+        <td>@ticket.createdAt.format("dd MMM yyyy hh:mm:ss a")</td>
+        <td>@ticket.updatedAt.format("dd MMM yyyy hh:mm:ss a")</td>
+        <td>@statusLabel(ticket.status)</td>
     </tr>
 }
 
@@ -33,7 +45,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">Tickets</h3>
                         <div class="box-tools pull-right">
-                            <span class="label label-info">@tickets.size Tickets</span>
+                            <a href="#" class="btn btn-warning btn-sm btn-flat">New Ticket</a>
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                         </div>
@@ -63,6 +75,7 @@
         </div><!-- /.row -->
     </section> <!-- /.content -->
 } {
+
     @tags.javascriptAssets("javascripts/application.js")
 
     <script type="application/javascript">

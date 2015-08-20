@@ -37,4 +37,15 @@ class UserService @Inject()(userDAO: UserDAO) extends LoggerHelper {
     userDAO.findAll()
   }
 
+  /**
+   * Get an user by given user id
+   *
+   * @param id
+   * @return
+   */
+  def getUserById(id: Long): Option[User] = {
+    info(s"Get an user by id called with id: $id")
+    userDAO.findById(id)
+  }
+
 }

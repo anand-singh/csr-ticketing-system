@@ -22,7 +22,9 @@ var ticketsDataTable = function () {
         } else {
             tr.addClass('details');
             //TODO: Need to add ajax call here
-            //row.child(userDetailsFormat(row.data())).show();
+            row.child(childRowDetails(1)).show();
+
+            populateRowDetails(1);
 
             // Add to the 'open' array
             if (idx === -1) {
@@ -38,4 +40,24 @@ var ticketsDataTable = function () {
         });
     });
 
+}
+
+var childRowDetails = function(id) {
+    return '<div id=rowDetails_' + id + "></div>"
+}
+
+var populateRowDetails = function(id) {
+    var request = $.ajax({
+        url: "/ticket-details?id=" + id,
+        method: "GET",
+        dataType: "html"
+    });
+
+    request.done(function( data ) {
+        $("#rowDetails_" + id).html(data);
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+    });
 }
