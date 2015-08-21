@@ -10,6 +10,16 @@ import utils.LoggerHelper
 class CustomerService @Inject()(customerDAO: CustomerDAO) extends LoggerHelper {
 
   /**
+   * Get all customer
+   *
+   * @return
+   */
+  def getAllCustomer: List[Customer] = {
+    info(s"Get all customer called")
+    customerDAO.findAll
+  }
+
+  /**
    * Get a customer by given customer id
    *
    * @param id

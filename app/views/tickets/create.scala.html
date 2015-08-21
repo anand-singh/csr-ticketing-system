@@ -1,1 +1,84 @@
-@(title: String)
+@* create Template File *@
+@(title: String, user: User, users: List[User], customers: List[Customer])(implicit flash: Flash)
+
+@adminlte.main(title, user) {
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Create @title
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="@routes.Application.index()"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Create @title</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+            <!-- Main row -->
+        <div class="row">
+            <div class="col-md-12">
+                    <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Ticket Form</h3>
+                    </div><!-- /.box-header -->
+                    <!-- form start -->
+                    <form id="ticketForm" action="@routes.TicketController.create()" method="post" role="form">
+                        <div class="box-body">
+                            @alerts.flashAlert()
+                            <!-- left column -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="Enter description" required>
+                                </div>
+                                    <!-- select -->
+                                <div class="form-group">
+                                    <label>Select Area</label>
+                                    <select id="area" name="area" class="form-control" required>
+                                        <option value="East Delhi">East Delhi</option>
+                                        <option value="North Delhi">North Delhi</option>
+                                        <option value="West Delhi">West Delhi</option>
+                                        <option value="South Delhi">South Delhi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Assigned To</label>
+                                    <select id="assignedTo" name="assignedTo" class="form-control select2" required>
+                                    @users.map { userData =>
+                                        <option value="@userData.id">@userData.name</option>
+                                    }
+                                    </select>
+                                </div><!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>Select Customer</label>
+                                    <select id="customerId" name="customerId" class="form-control select2" required>
+                                    @customers.map { customer =>
+                                        <option value="@customer.id">@customer.name</option>
+                                    }
+                                    </select>
+                                </div><!-- /.form-group -->
+                            </div>
+                        </div><!-- /.box-body -->
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div><!-- /.box -->
+            </div>
+        </div><!-- /.row -->
+    </section> <!-- /.content -->
+} {
+    <!-- Page script -->
+    <script type="text/javascript">
+      $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+      });
+    </script>
+}

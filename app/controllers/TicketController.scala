@@ -1,11 +1,13 @@
 package controllers
 
 import com.google.inject.Inject
-import models.{TicketDetail, Ticket, User}
+import models.{Customer, TicketDetail, Ticket, User}
 import play.api.cache.CacheApi
 import play.api.mvc.Controller
 import services.{CommentService, CustomerService, TicketService, UserService}
 import utils.{FutureHelper, LoggerHelper, AuthHelper}
+import play.api.data._
+import play.api.data.Forms._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -61,6 +63,68 @@ class TicketController @Inject()
     }.recover { case ex: Exception =>
       error(ex.getMessage, ex)
       Ok("Ticket not found for given id!!!")
+    }
+  }
+
+  /**
+   * Render create ticket form with required data
+   *
+   * @return
+   */
+  def createFormView = withAuth { user => implicit request =>
+    info(s"Session user data: $user")
+    val futurePageData = for {
+      users <- FutureHelper(uService.getUsers)
+      customers <- FutureHelper(cService.getAllCustomer)
+    } yield (users, customers)
+
+    futurePageData.map { case (users, customers) =>
+      Ok(views.html.tickets.create("Tickets", user, users, customers))
+    }.recover { case ex: Exception =>
+      error(ex.getMessage, ex)
+      Ok(views.html.tickets.create("Tickets", user, List.empty[User], List.empty[Customer]))
+    }
+  }
+
+  def ticketForm = Form(
+    tuple(
+      "description" -> nonEmptyText,
+      "area" -> nonEmptyText,
+      "assignedTo" -> longNumber,
+      "customerId" -> longNumber
+    ))
+
+  /**
+   * Handle create ticket form data
+   *
+   * @return
+   */
+  def create = withAuth { user => implicit request =>
+    info(s"Create form called with session user data: $user")
+    FutureHelper {
+      ticketForm.bindFromRequest.fold(
+        formWithErrors => {
+          Redirect(routes.TicketController.createFormView).flashing {
+            "ERROR" -> "Oops! Please check the form data."
+          }
+        },
+        ticketData => {
+          val (description, area, assignedTo, customerId) = ticketData
+          info(s"Form Data => $description, $area, $assignedTo, $customerId")
+          val ticketObj = Ticket(description = description, area = area,
+            customerId = customerId, createdBy = user.id, assignedTo = assignedTo)
+          val result = tService.createTicket(ticketObj) match {
+            case Right(tObj: Ticket) => ("SUCCESS" -> "Ticket has been created successfully.")
+            case Left(error) => ("ERROR" -> error)
+          }
+          Redirect(routes.TicketController.tickets).flashing(result)
+        }
+      )
+    }.map { result => result }.recover { case ex: Exception =>
+      error(ex.getMessage, ex)
+      Redirect(routes.TicketController.tickets).flashing {
+        "ERROR" -> "Oops! There is some problem with server. Please try after some time."
+      }
     }
   }
 

@@ -12,6 +12,11 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class Application @Inject()(cacheApi: CacheApi, uService: UserService, tService: TicketService)
   extends AuthHelper(cacheApi) with Controller with LoggerHelper {
 
+  /**
+   * Render the Dashboard page of the application
+   *
+   * @return
+   */
   def index = withAuth { user => implicit request =>
     info(s"Session user data: $user")
     FutureHelper {

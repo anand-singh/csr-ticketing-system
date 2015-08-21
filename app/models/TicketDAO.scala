@@ -15,11 +15,12 @@ case class TicketDetail
  comments: List[Comment] = List.empty[Comment])
 
 case class Ticket
-(id: Long,
+(id: Long = 0L,
  description: String,
- status: String,
- createdAt: Date,
- updatedAt: Date,
+ status: String = "New",
+ area: String,
+ createdAt: Date = new Date(),
+ updatedAt: Date = new Date(),
  customerId: Long,
  createdBy: Long,
  assignedTo: Long)
@@ -49,6 +50,33 @@ class TicketDAO extends DAOParsers {
   def findById(id: Long): Option[Ticket] = {
     DB.withConnection { implicit connection =>
       SQL("select * from tickets where id = {id}").on('id -> id).as(ticket.singleOpt)
+    }
+  }
+
+  /**
+   * Create new ticket by given ticket object
+   *
+   * @param ticket
+   * @return
+   */
+  def create(ticket: Ticket): Option[Ticket] = {
+    DB.withConnection { implicit connection =>
+      SQL(
+        """
+        INSERT INTO tickets (description, status, area, customer_id, created_by, assigned_to)
+        VALUES ({description}, {status}, {area}, {customerId}, {createdBy}, {assignedTo})
+        """
+      ).on(
+          'description -> ticket.description,
+          'status -> ticket.status,
+          'area -> ticket.area,
+          'customerId -> ticket.customerId,
+          'createdBy -> ticket.createdBy,
+          'assignedTo -> ticket.assignedTo
+        ).executeInsert() match {
+        case Some(newId: Long) => Some(ticket.copy(id = newId))
+        case None => None
+      }
     }
   }
 

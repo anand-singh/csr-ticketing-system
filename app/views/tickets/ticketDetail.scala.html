@@ -30,6 +30,7 @@
         <div class="col-md-4">
             @userDetails("danger", "Created By", ticketDetail.createdBy)
             @userDetails("info", "Assigned To", ticketDetail.assignedTo)
+            @customerDetails(ticketDetail.customer)
         </div>
 
         <div class="col-md-4">
@@ -81,7 +82,7 @@
                             </div>
                             <div class="pull-left info">
                                 <p>@user.name</p>
-                                <i class="fa fa-circle text-successAlert"></i> @user.designation
+                                <i class="fa fa-circle text-success"></i> @user.designation
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -100,6 +101,31 @@
                 @comment.comment
                 </div><!-- /.direct-chat-text -->
             </div> <!-- /.direct-chat-msg -->
+        }
+
+        @customerDetails(customer: Customer) = {
+            <div class="col-md-12">
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Customer Details</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="user-panel">
+                            <div class="pull-left image">
+                                <img src="@GravatarUtility.gravatarUrl(customer.email)" class="img-circle" alt="User Image" />
+                            </div>
+                            <div class="pull-left info">
+                                <p>@customer.name</p>
+                                @customer.contact - @customer.address
+                            </div>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!--/.box -->
+            </div> <!-- /.col -->
         }
 
         @statusRadioButton(name: String, value: String) = {

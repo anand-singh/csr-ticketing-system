@@ -2,36 +2,45 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>CSR-System | @title</title>
-		<!-- Tell the browser to be responsive to screen width -->
-		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSR-System | @title</title>
+            <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-		@stylesheet(title)
+        @stylesheet(title)
 
-	</head>
+    </head>
 
-	<body class="skin-green-light sidebar-mini fixed">
-		
-		<div class="wrapper">
+    <body class="skin-green-light sidebar-mini fixed">
 
-			@header.mainHeader(title, user)
-			@sidebar.leftSidebar(title, user)
+        <div class="wrapper">
 
-			<!-- Content Wrapper. Contains page content -->
-			<div class="content-wrapper">@content</div>
-			<!-- /.content-wrapper -->
+            @header.mainHeader(title, user)
+            @sidebar.leftSidebar(title, user)
 
-			@footer(title)
+            <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">@content</div>
+            <!-- /.content-wrapper -->
 
-		</div>
-		<!-- ./wrapper -->
+            @footer(title)
 
-		<!-- REQUIRED JS SCRIPTS -->
-		@script(title)
+        </div>
+            <!-- ./wrapper -->
 
-		@customScripts
+            <!-- REQUIRED JS SCRIPTS -->
+        @script(title)
 
-	</body>
+        @customScripts
+
+        <script type="application/javascript">
+			$(function() {
+                // Hide the alert
+                setTimeout(function() {
+                    $(".callout").hide();
+                }, 2000);
+            });
+		</script>
+
+    </body>
 </html>

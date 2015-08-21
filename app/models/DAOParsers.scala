@@ -46,9 +46,10 @@ trait DAOParsers {
   val customer = {
     get[Long]("customers.id") ~
       get[String]("customers.name") ~
+      get[String]("customers.email") ~
       get[String]("customers.address") ~
       get[String]("customers.contact") map {
-      case id ~ name ~ address ~ contact => Customer(id, name, address, contact)
+      case id ~ name ~ email ~ address ~ contact => Customer(id, name, email, address, contact)
     }
   }
 
@@ -59,13 +60,14 @@ trait DAOParsers {
     get[Long]("tickets.id") ~
       get[String]("tickets.description") ~
       get[String]("tickets.status") ~
+      get[String]("tickets.area") ~
       get[Date]("tickets.created_at") ~
       get[Date]("tickets.updated_at") ~
       get[Long]("tickets.customer_id") ~
       get[Long]("tickets.created_by") ~
       get[Long]("tickets.assigned_to") map {
-      case id ~ description ~ status ~ createdAt ~ updatedAt ~ customerId ~ createdBy ~ assignedTo =>
-        Ticket(id, description, status, createdAt, updatedAt, customerId, createdBy, assignedTo)
+      case id ~ description ~ status ~ area ~ createdAt ~ updatedAt ~ customerId ~ createdBy ~ assignedTo =>
+        Ticket(id, description, status, area, createdAt, updatedAt, customerId, createdBy, assignedTo)
     }
   }
 

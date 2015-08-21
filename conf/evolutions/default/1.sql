@@ -17,6 +17,7 @@ CREATE TABLE users (
 CREATE TABLE customers (
   id      BIGINT        NOT NULL AUTO_INCREMENT,
   name    VARCHAR(255)  NOT NULL,
+  email   VARCHAR(100)  NOT NULL,
   address VARCHAR(1000) NOT NULL,
   contact VARCHAR(55)   NOT NULL,
   CONSTRAINT pk_customers PRIMARY KEY (id)
@@ -26,6 +27,7 @@ CREATE TABLE tickets (
   id          BIGINT        NOT NULL AUTO_INCREMENT,
   description VARCHAR(1000) NOT NULL,
   status      VARCHAR(55)   NOT NULL,
+  area        VARCHAR(255)  NOT NULL,
   created_at  TIMESTAMP              DEFAULT NOW(),
   updated_at  TIMESTAMP              DEFAULT NOW(),
   customer_id BIGINT        NOT NULL,

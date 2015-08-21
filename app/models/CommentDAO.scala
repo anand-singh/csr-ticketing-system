@@ -17,6 +17,12 @@ case class Comment(id: Long, user: User, ticketId: Long, comment: String, create
  */
 class CommentDAO extends DAOParsers {
 
+  /**
+   * Find all comment by given ticketId
+   *
+   * @param ticketId
+   * @return
+   */
   def findByTicketId(ticketId: Long): List[Comment] = {
     DB.withConnection { implicit connection =>
       SQL(

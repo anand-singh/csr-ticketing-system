@@ -73,6 +73,11 @@
         @script(title)
         <script type="application/javascript">
             $(function () {
+                // Hide the alert
+                setTimeout(function() {
+                    $(".callout").hide();
+                }, 2000);
+
                 $('input').iCheck({
                     checkboxClass: 'icheckbox_square-blue',
                     radioClass: 'iradio_square-blue',

@@ -13,7 +13,6 @@ scalaVersion := "2.11.6"
 libraryDependencies ++= Seq(jdbc, cache, ws, evolutions, specs2 % Test)
 
 libraryDependencies ++= Seq(
-  "postgresql"        %  "postgresql"       % "9.1-901-1.jdbc4",
   "com.typesafe.play" %% "anorm" 				    % "2.4.0",
   "org.webjars"       %% "webjars-play"     % "2.4.0-1",
   "org.webjars.bower" %  "adminlte"         % "2.2.0",

@@ -6,7 +6,7 @@ var ticketsDataTable = function () {
             {"orderable": false, "targets": [0]},
             {"targets": [ 1 ], "visible": false}
         ],
-        "order": [[ 5, "desc" ]]
+        "order": [[ 6, "desc" ]]
     });
 
     // Array to track the ids of the details displayed rows
