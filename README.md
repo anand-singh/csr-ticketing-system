@@ -12,7 +12,7 @@ This is a classic CSR-System application, backed by a JDBC database. It demonstr
 - [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/index2.html) Control Panel Template with Twitter Bootstrap to improve the look and feel of the application
 
 -----------------------------------------------------------------------
-###Instructions :-
+###Instructions
 -----------------------------------------------------------------------
 * The live application is currently hosted at : [CSR-System](http://csr-ticketing-system.herokuapp.com/)
 * The GitHub code for the project is at : [CSR-System](https://github.com/anand-singh/csr-ticketing-system)
@@ -21,4 +21,4 @@ This is a classic CSR-System application, backed by a JDBC database. It demonstr
 * Install Typesafe Activator if you do not have it already. You can get it from here: [download](http://www.playframework.com/download)
 * Execute `activator clean compile` to build the product
 * Execute `activator run` to execute the product
-* [CSR-System](http://csr-ticketing-system.herokuapp.com/) should now be accessible at localhost:9000
+* [CSR-System](http://csr-ticketing-system.herokuapp.com/) should now be accessible at [localhost:9000](http://localhost:9000/)
