@@ -15,10 +15,10 @@ This is a classic CSR-System application, backed by a JDBC database. It demonstr
 ###Instructions :-
 -----------------------------------------------------------------------
 * The live application is currently hosted at : [CSR-System](http://csr-ticketing-system.herokuapp.com/)
-* The GitHub code for the project is at : https://github.com/knoldus/Employee-Self-Service
+* The GitHub code for the project is at : [CSR-System](https://github.com/anand-singh/csr-ticketing-system)
 * Clone the project into local system
 * To run the Play framework 2.4.x, you need JDK 8
-* Install Typesafe Activator if you do not have it already. You can get it from here: http://www.playframework.com/download
+* Install Typesafe Activator if you do not have it already. You can get it from here: [download](http://www.playframework.com/download)
 * Execute `activator clean compile` to build the product
 * Execute `activator run` to execute the product
 * [CSR-System](http://csr-ticketing-system.herokuapp.com/) should now be accessible at localhost:9000
