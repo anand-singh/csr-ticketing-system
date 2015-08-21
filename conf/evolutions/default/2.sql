@@ -27,29 +27,29 @@ INSERT INTO customers (id, name, address, contact)
 VALUES (3, 'Amit', 'Karol Bag', '011-22751903');
 
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (1, 'Delay in delivery', 'Open', 1, 1, 2);
+VALUES (1, 'Delay in delivery: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Open', 1, 1, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (2, 'Defect in product', 'New', 2, 2, 2);
+VALUES (2, 'Defect in product: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'New', 2, 2, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (3, 'Wrong product delivery', 'Closed', 3, 2, 2);
+VALUES (3, 'Wrong product delivery: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Closed', 3, 2, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (4, 'Wrong product delivery', 'New', 1, 1, 1);
+VALUES (4, 'Wrong product delivery: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'New', 1, 1, 1);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (5, 'Missing product', 'New', 2, 3, 3);
+VALUES (5, 'Missing product: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'New', 2, 3, 3);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (6, 'Missing product', 'Open', 3, 1, 2);
+VALUES (6, 'Missing product: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Open', 3, 1, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (7, 'Missing product', 'Closed', 1, 2, 2);
+VALUES (7, 'Missing product: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Closed', 1, 2, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (8, 'Wrong product delivery', 'Open', 1, 1, 1);
+VALUES (8, 'Wrong product delivery: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Open', 1, 1, 1);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (9, 'Wrong product delivery', 'Closed', 2, 2, 2);
+VALUES (9, 'Wrong product delivery: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Closed', 2, 2, 2);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (10, 'Wrong product delivery', 'Open', 3, 3, 3);
+VALUES (10, 'Wrong product delivery: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Open', 3, 3, 3);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (11, 'Defect in product', 'Open', 3, 3, 3);
+VALUES (11, 'Defect in product: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'Open', 3, 3, 3);
 INSERT INTO tickets (id, description, status, customer_id, created_by, assigned_to)
-VALUES (12, 'Defect in product', 'New', 2, 2, 2);
+VALUES (12, 'Defect in product: A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'New', 2, 2, 2);
 
 INSERT INTO comments (id, user_id, ticket_id, comment)
 VALUES (1, 1, 1, '@Anand: Could you please look into this');

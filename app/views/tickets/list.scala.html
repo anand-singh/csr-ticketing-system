@@ -1,5 +1,5 @@
 @* tickets Template File *@
-@(title: String, user: User, users: Map[Long, User], tickets: List[Ticket])
+@(title: String, user: User, tickets: List[Ticket])
 
 @getLabelCSS(status: String) = {
     @{status match {
@@ -16,7 +16,8 @@
 @trHelper(ticket: Ticket) = {
     <tr>
         <td class="details-control"></td>
-        <td>@ticket.description</td>
+        <td>@ticket.id</td>
+        <td>@ticket.description.slice(0, 50) ...</td>
         <td>@ticket.createdAt.format("dd MMM yyyy hh:mm:ss a")</td>
         <td>@ticket.updatedAt.format("dd MMM yyyy hh:mm:ss a")</td>
         <td>@statusLabel(ticket.status)</td>
@@ -56,6 +57,7 @@
                                 <thead>
                                     <tr>
                                         <th></th>
+                                        <th>Id</th>
                                         <th>Description</th>
                                         <th>Created</th>
                                         <th>Updated</th>

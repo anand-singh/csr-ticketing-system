@@ -2,7 +2,11 @@ var ticketsDataTable = function () {
 
     var dt = $('#ticketsDataTable').DataTable({
         responsive: true,
-        "columnDefs": [{"orderable": false, "targets": 0}]
+        "columnDefs": [
+            {"orderable": false, "targets": [0]},
+            {"targets": [ 1 ], "visible": false}
+        ],
+        "order": [[ 5, "desc" ]]
     });
 
     // Array to track the ids of the details displayed rows
@@ -21,10 +25,10 @@ var ticketsDataTable = function () {
             //detailRows.splice( idx, 1 );
         } else {
             tr.addClass('details');
-            //TODO: Need to add ajax call here
-            row.child(childRowDetails(1)).show();
+            var ticketId = row.data()[1];
+            row.child(childRowDetails(ticketId)).show();
 
-            populateRowDetails(1);
+            populateRowDetails(ticketId);
 
             // Add to the 'open' array
             if (idx === -1) {
@@ -42,22 +46,27 @@ var ticketsDataTable = function () {
 
 }
 
-var childRowDetails = function(id) {
-    return '<div id=rowDetails_' + id + "></div>"
+var childRowDetails = function (id) {
+    return '<div id=rowDetails_' + id + '><div class="overlay"><i class="fa fa-refresh fa-spin"></i></div></div>'
 }
 
-var populateRowDetails = function(id) {
+var populateRowDetails = function (id) {
     var request = $.ajax({
         url: "/ticket-details?id=" + id,
         method: "GET",
         dataType: "html"
     });
 
-    request.done(function( data ) {
+    request.done(function (data) {
         $("#rowDetails_" + id).html(data);
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
     });
 
-    request.fail(function( jqXHR, textStatus ) {
-        alert( "Request failed: " + textStatus );
+    request.fail(function (jqXHR, textStatus) {
+        $("#rowDetails_" + id).html(textStatus);
     });
 }

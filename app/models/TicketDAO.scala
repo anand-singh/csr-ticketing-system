@@ -1,6 +1,5 @@
 package models
 
-import anorm._
 import play.api.db.DB
 import java.util.{Date}
 import play.api.Play.current

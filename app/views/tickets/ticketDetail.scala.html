@@ -1,113 +1,114 @@
 @(ticketDetail: TicketDetail)
 
-@import utils.GravatarUtility
+    @import utils.GravatarUtility
 
-<div class="row">
-    <div class="col-md-4">
-            <!-- DIRECT CHAT -->
-        <div class="box box-warning direct-chat direct-chat-warning">
-            <div class="box-header with-border">
-                <h3 class="box-title">Direct Chat</h3>
-                <div class="box-tools pull-right">
-                    <span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</span>
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-            </div><!-- /.box-header -->
-            <div class="box-body">
-                    <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
-                        <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
-                        <div class="direct-chat-info clearfix">
-                            <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                            <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
-                        </div><!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" /><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            Is this template really for free? That's unbelievable!
-                        </div><!-- /.direct-chat-text -->
-                    </div><!-- /.direct-chat-msg -->
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-info clearfix">
-                            <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                            <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                        </div><!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" /><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            You better believe it!
-                        </div><!-- /.direct-chat-text -->
-                    </div><!-- /.direct-chat-msg -->
-
-                    <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
-                        <div class="direct-chat-info clearfix">
-                            <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                            <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
-                        </div><!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" /><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            Working with AdminLTE on a great new app! Wanna join?
-                        </div><!-- /.direct-chat-text -->
-                    </div><!-- /.direct-chat-msg -->
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-info clearfix">
-                            <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                            <span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
-                        </div><!-- /.direct-chat-info -->
-                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" /><!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            I would love to.
-                        </div><!-- /.direct-chat-text -->
-                    </div><!-- /.direct-chat-msg -->
-
-                </div><!--/.direct-chat-messages-->
-
-                <!-- Contacts are loaded here -->
-
-            </div><!-- /.box-body -->
-            <div class="box-footer">
-                <form action="#" method="post">
-                    <div class="input-group">
-                        <input type="text" name="message" placeholder="Type Message ..." class="form-control" />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-warning btn-flat">Send</button>
-                        </span>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Ticket Details</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                     </div>
-                </form>
-            </div><!-- /.box-footer-->
-        </div><!--/.direct-chat -->
-    </div><!-- /.col -->
+                </div> <!-- /.box-header -->
+                <div class="box-body">
+                    <p class="text-muted well well-sm no-shadow" style="margin-top : 10 px ;">
+                    @ticketDetail.ticket.description
+                    </p>
+                </div> <!-- /.box-body -->
+                <div class="box-footer">
+                    <ul class="nav nav-pills nav-stacked">
+                        @statusRadioButton("New", ticketDetail.ticket.status)
+                        @statusRadioButton("Open", ticketDetail.ticket.status)
+                        @statusRadioButton("Closed", ticketDetail.ticket.status)
+                    </ul>
+                </div> <!-- /.footer -->
+            </div> <!-- /.box -->
+        </div>
 
-    @userDetails("danger", "Created By", ticketDetail.createdBy)
-    @userDetails("info", "Assigned To", ticketDetail.assignedTo)
+        <div class="col-md-4">
+            @userDetails("danger", "Created By", ticketDetail.createdBy)
+            @userDetails("info", "Assigned To", ticketDetail.assignedTo)
+        </div>
 
-</div><!-- /.row -->
+        <div class="col-md-4">
+                <!-- DIRECT CHAT -->
+            <div class="box box-warning direct-chat direct-chat-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Comments</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div> <!-- /.box-header -->
+                <div class="box-body">
+                        <!-- Conversations are loaded here -->
+                    <div class="direct-chat-messages">
+                    @ticketDetail.comments.map { comment =>
+                        @commentDetails(comment)
+                    }
+                    </div> <!-- /.box-body -->
+                    <div class="box-footer">
+                        <form action="#" method="post">
+                            <div class="input-group">
+                                <input type="text" name="comment" placeholder="Type Your Comment ..." class="form-control" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-warning btn-flat">Comment</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div> <!-- /.box-footer-->
+                </div> <!--/.direct-chat -->
+            </div> <!-- /.col -->
 
-@userDetails(css: String, userType: String, user: User) = {
-    <div class="col-md-2">
-        <div class="box box-@css">
-            <div class="box-header with-border">
-                <h3 class="box-title">@userType</h3>
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div> <!-- /.row -->
+
+        @userDetails(css: String, userType: String, user: User) = {
+            <div class="col-md-12">
+                <div class="box box-@css">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@userType</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="user-panel">
+                            <div class="pull-left image">
+                                <img src="@GravatarUtility.gravatarUrl(user.email)" class="img-circle" alt="User Image" />
+                            </div>
+                            <div class="pull-left info">
+                                <p>@user.name</p>
+                                <i class="fa fa-circle text-successAlert"></i> @user.designation
+                            </div>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!--/.box -->
+            </div> <!-- /.col -->
+        }
+
+        @commentDetails(comment: Comment) = {
+            <div class="direct-chat-msg">
+                <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-left">@comment.user.name</span>
+                    <span class="direct-chat-timestamp pull-right">@comment.createdAt.format("dd MMM hh:mm a")</span>
+                </div><!-- /.direct-chat-info -->
+                <img class="direct-chat-img" src="@GravatarUtility.gravatarUrl(comment.user.email)" alt="message user image" /><!-- /.direct-chat-img -->
+                <div class="direct-chat-text">
+                @comment.comment
+                </div><!-- /.direct-chat-text -->
+            </div> <!-- /.direct-chat-msg -->
+        }
+
+        @statusRadioButton(name: String, value: String) = {
+            <li>
+                <div class="form-group">
+                    <label>
+                        <input type="radio" name="statusRadioButton" class="flat-red" @if(name == value) {checked} @if("Closed" == value){disabled} />
+                        @name
+                    </label>
                 </div>
-            </div><!-- /.box-header -->
-            <div class="box-body no-padding">
-                <ul class="users-list clearfix">
-                    <li>
-                        <img src="@GravatarUtility.gravatarUrl(user.email)" alt="User Image" />
-                        <a class="users-list-name" href="#">@user.name</a>
-                        <span class="users-list-date">@user.designation</span>
-                    </li>
-                </ul><!-- /.users-list -->
-            </div><!-- /.box-body -->
-        </div><!--/.box -->
-    </div> <!-- /.col -->
+            <li>
 }
