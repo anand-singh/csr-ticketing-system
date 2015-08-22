@@ -11,13 +11,13 @@ VALUES (3, 'Jyoti Singh', 'Testing Engineer', 'jyoti@gmail.com', 'password', fal
 INSERT INTO users (id, name, designation, email, password, is_admin)
 VALUES (4, 'Amit Singh', 'Product Engineer', 'amit@gmail.com', 'password', false);
 INSERT INTO users (id, name, designation, email, password, is_admin)
-VALUES (5, 'Premalatha', 'Manager', 'premalatha@gmail.com', 'password', true);
+VALUES (5, 'Prem Kumar', 'Manager', 'prem.kumar@gmail.com', 'password', true);
 INSERT INTO users (id, name, designation, email, password, is_admin)
 VALUES (6, 'Avinash Singh', 'Developer', 'avinash@gmail.com', 'password', false);
 INSERT INTO users (id, name, designation, email, password, is_admin)
 VALUES (7, 'Satendra Yadav', 'Testing Engineer', 'satendra@gmail.com', 'password', false);
 INSERT INTO users (id, name, designation, email, password, is_admin)
-VALUES (8, 'Amit Singh', 'Product Engineer', 'amit@gmail.com', 'password', false);
+VALUES (8, 'Anuradha Singh', 'Product Engineer', 'anuradha@gmail.com', 'password', false);
 
 INSERT INTO customers (id, name, email, address, contact)
 VALUES (1, 'Anuj Raj', 'anuj@gmail.com', 'Mayur Vihar Phase-1', '011-22751903');
